@@ -59,12 +59,11 @@ methods: {
       .fire({
           title: `Shutdown System?`,
           html:
-            "<p>Are you sure you want to shutdown the audio system?",
-          icon: "warning",
+            "<p>Are you sure you want to shutdown the sound system?",
+          icon: "question",
           showCancelButton: true,
           confirmButtonColor: "#dc3545",
           confirmButtonText: "Shutdown",
-          reverseButtons: true,
         })
         .then(async function (result) {
           if (result.isConfirmed) {

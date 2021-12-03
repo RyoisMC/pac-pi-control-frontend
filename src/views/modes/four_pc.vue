@@ -111,7 +111,7 @@ methods: {
           title: `Shutdown System?`,
           html:
             "<p>Are you sure you want to shutdown the sound system?",
-          icon: "warning",
+          icon: "question",
           showCancelButton: true,
           confirmButtonColor: "#dc3545",
           confirmButtonText: "Shutdown",
