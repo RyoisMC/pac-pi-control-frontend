@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 const homepage = () => import('../views/homepage.vue');
+const sleep = () => import('../views/sleep.vue');
 const power_on = () => import('../views/power_on.vue');
 const power_off = () => import('../views/power_off.vue');
 const mode_one = () => import('../views/modes/one.vue');
@@ -17,6 +18,15 @@ const routes = [
     component: homepage,
     meta: {
       title: 'Home',
+      visible: true
+    },
+  },
+  {
+    path: '/sleep',
+    name: 'Sleep',
+    component: sleep,
+    meta: {
+      title: 'Screen Sleeping',
       visible: true
     },
   },

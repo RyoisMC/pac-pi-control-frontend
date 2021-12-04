@@ -1,5 +1,6 @@
 <template>
   <div id="welcomebg" class="text-center">
+    <v-idle @idle="idleCheck()" :duration="60" />
     <b-container class="vertical-center">
       <b-row>
         <b-col><b-button pill class="btn-circle" data-mode="ONE" v-on:click="power_on('ONE')" variant="primary">One Mic</b-button></b-col>
@@ -15,14 +16,19 @@
 <script>
 export default {
   name: "homepage",
-    methods: {
+  methods: {
     power_on(mode) {
       const props = { "mode": mode};
         this.$router.push({
           name: "PowerOn",
           params: { props },
       });
-    }
+    },
+    idleCheck() {
+        this.$router.push({
+          name: "Sleep",
+      });
+    },
   }
 };
 </script>

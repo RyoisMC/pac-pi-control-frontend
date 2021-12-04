@@ -7,15 +7,47 @@
   </div>
 </template>
 <script>
+import axios from "axios";
 export default {
   name: "power_off",
   mounted() {
     const vm = this;
-    setTimeout(() => {
-      vm.$router.push({
-        name: 'Home',
+    axios
+      .post(`${vm.$parent.API_BASE_URL}/control/mode`, { mode: "FULL" })
+      .then(function (response) {
+        vm.$parent.$toast.success(response.data.data.message, {
+          position: "top-right",
+        });
+        setTimeout(() => {
+          axios
+            .post(`${vm.$parent.API_BASE_URL}/control/power`, { action: "OFF" })
+            .then(function (response) {
+              vm.$parent.$toast.success(response.data.data.message, {
+                position: "top-right",
+              });
+              setTimeout(() => {
+                vm.$router.push({
+                  name: `Home`,
+                });
+              }, 3000);
+            })
+            .catch(function (error) {
+              if (error.response) {
+                vm.$parent.$toast.success(error.response.data, {
+                  position: "top-right",
+                });
+              }
+            });
+        }, 10000);
+      })
+      .catch(function (error) {
+        console.log(error);
+        if (error.response) {
+          vm.$parent.$toast.success(error.response.data, {
+            position: "top-right",
+          });
+        }
       });
-    }, 3000);
   }
 };
 </script>
