@@ -3,7 +3,7 @@
 </template>
 <script>
 export default {
-  name: "homepage",
+  name: "sleep",
   methods: {
     wakeUp() {
       this.$router.push({

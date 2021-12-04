@@ -6,7 +6,7 @@ import axios from "axios";
 export default {
   name: "heartbeat",
   methods: {
-    doHeartbeat: function () {
+    doStatusHeartbeat: function () {
       const vm = this.$parent;
       axios({
         method: "get",
@@ -52,14 +52,44 @@ export default {
           console.error(response);
         });
     },
+    doOnlineHeartbeat: function () {
+      const vm = this;
+      axios({
+        method: "get",
+        url: `${vm.$parent.API_BASE_URL}/heartbeat`,
+      })
+        .then(function (response) {
+          if (response.data.error) {
+          vm.$parent.$router.push({
+            name: `Offline`,
+          });
+            vm.$parent.ONLINE = false;
+            console.error(response.data.message);
+          }
+          if (!response.data.error) {
+            vm.$parent.DISPLAY_IP = response.data.data.display_ip;
+            vm.$parent.X32_IP = response.data.data.x32_ip;
+            vm.$parent.ONLINE = true;
+          }
+        })
+        .catch(function (response) {
+          vm.$parent.$router.push({
+            name: `Offline`,
+          });
+          vm.$parent.ONLINE = false;
+          console.error(response);
+        });
+    },
   },
   created() {
-    this.doHeartbeat();
+    this.doStatusHeartbeat();
+    this.doOnlineHeartbeat();
   },
   mounted: function () {
     this.$nextTick(function () {
       window.setInterval(() => {
-        this.doHeartbeat();
+        this.doStatusHeartbeat();
+        this.doOnlineHeartbeat();
       }, 5000);
     });
   },

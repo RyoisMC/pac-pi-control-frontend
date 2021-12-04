@@ -2,6 +2,23 @@
   <div id="app">
     <main>
       <heartbeat></heartbeat>
+      <div
+        v-on:click="showInfo()"
+        id="status_icon"
+        v-bind:class="{ online: ONLINE, offline: !ONLINE }"
+        class="text-white text-center"
+      >
+        <b-icon
+          v-if="ONLINE"
+          icon="check"
+          style="width: 40px; height: 40px"
+        ></b-icon>
+        <b-icon
+          v-else
+          icon="exclamation-triangle"
+          style="width: 30px; height: 30px"
+        ></b-icon>
+      </div>
       <router-view></router-view>
     </main>
   </div>
@@ -10,20 +27,36 @@
 <script>
 import heartbeat from "./components/global/heartbeat.vue";
 export default {
-  name: 'App',
+  name: "App",
   components: {
     heartbeat,
   },
   data: function () {
     return {
-      API_BASE_URL: process.env.NODE_ENV === 'development'
-    ? 'http://localhost:3000/api'
-    : 'https://api.pac-control.jchsprojects.com/api',
+      ONLINE: true,
+      API_BASE_URL:
+        process.env.NODE_ENV === "development"
+          ? "http://localhost:3000/api"
+          : "https://api.pac-control.jchsprojects.com/api",
       POWER_STATUS: null,
       MODE_STATUS: null,
+      DISPLAY_IP: null,
+      X32_IP: null,
     };
   },
-}
+  methods: {
+    async showInfo() {
+      const vm = this;
+      vm.$swal.fire({
+        title: `System Information`,
+        confirmButtonText: 'Close',
+        html: `<code>Status: ${vm.ONLINE ? "Online" : "Offline"}<br>API Endpoint: ${vm.API_BASE_URL}<br>Display IP: ${vm.DISPLAY_IP}<br>X32 IP: ${vm.X32_IP}</code>`,
+        footer:
+          "Developed by Russell Payne 2021. Exclusively for Jefferson County High School.<br><b>NO SUPPORT IS INCLUDED</b>",
+      });
+    },
+  },
+};
 </script>
 <style>
 #app {
@@ -37,60 +70,97 @@ export default {
   -ms-user-select: none;
   user-select: none;
 }
-#genericbg{
+#genericbg {
   height: 100vh;
   background-image: url("/assets/backgrounds/BackgroundScaled.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
-#welcomebg{
+#welcomebg {
   height: 100vh;
   background-image: url("/assets/backgrounds/WelcomeScaled.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
-#sleepingbg{
+#sleepingbg {
   height: 100vh;
   background-image: url("/assets/backgrounds/SleepScreen.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
-html, body{
-    overflow: hidden;
-    height: 100vh;
+html,
+body {
+  overflow: hidden;
+  height: 100vh;
 }
 /*Start flashing button for mute*/
-.btn-danger.active{
+.btn-danger.active {
   -webkit-animation: glowing 1500ms infinite;
   -moz-animation: glowing 1500ms infinite;
   -o-animation: glowing 1500ms infinite;
   animation: glowing 1500ms infinite;
 }
 @-webkit-keyframes glowing {
-  0% { background-color: #B20000; -webkit-box-shadow: 0 0 3px #B20000; }
-  50% { background-color: #FF0000; -webkit-box-shadow: 0 0 40px #FF0000; }
-  100% { background-color: #B20000; -webkit-box-shadow: 0 0 3px #B20000; }
+  0% {
+    background-color: #b20000;
+    -webkit-box-shadow: 0 0 3px #b20000;
+  }
+  50% {
+    background-color: #ff0000;
+    -webkit-box-shadow: 0 0 40px #ff0000;
+  }
+  100% {
+    background-color: #b20000;
+    -webkit-box-shadow: 0 0 3px #b20000;
+  }
 }
 
 @-moz-keyframes glowing {
-  0% { background-color: #B20000; -moz-box-shadow: 0 0 3px #B20000; }
-  50% { background-color: #FF0000; -moz-box-shadow: 0 0 40px #FF0000; }
-  100% { background-color: #B20000; -moz-box-shadow: 0 0 3px #B20000; }
+  0% {
+    background-color: #b20000;
+    -moz-box-shadow: 0 0 3px #b20000;
+  }
+  50% {
+    background-color: #ff0000;
+    -moz-box-shadow: 0 0 40px #ff0000;
+  }
+  100% {
+    background-color: #b20000;
+    -moz-box-shadow: 0 0 3px #b20000;
+  }
 }
 
 @-o-keyframes glowing {
-  0% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
-  50% { background-color: #FF0000; box-shadow: 0 0 40px #FF0000; }
-  100% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
+  0% {
+    background-color: #b20000;
+    box-shadow: 0 0 3px #b20000;
+  }
+  50% {
+    background-color: #ff0000;
+    box-shadow: 0 0 40px #ff0000;
+  }
+  100% {
+    background-color: #b20000;
+    box-shadow: 0 0 3px #b20000;
+  }
 }
 
 @keyframes glowing {
-  0% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
-  50% { background-color: #FF0000; box-shadow: 0 0 40px #FF0000; }
-  100% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
+  0% {
+    background-color: #b20000;
+    box-shadow: 0 0 3px #b20000;
+  }
+  50% {
+    background-color: #ff0000;
+    box-shadow: 0 0 40px #ff0000;
+  }
+  100% {
+    background-color: #b20000;
+    box-shadow: 0 0 3px #b20000;
+  }
 }
 /*End flashing*/
 /*Start Spinner*/
@@ -174,24 +244,41 @@ html, body{
 }
 /*End Spinner*/
 /*Beign power button*/
-#power_button{
-    position: absolute;
-    border-radius: 25px;
-    right:    10px;
-    bottom:   10px;
-    background-color: #dc3545;
-    height: 120px;
-    width: 120px;
-    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+#power_button {
+  position: absolute;
+  border-radius: 25px;
+  right: 10px;
+  bottom: 10px;
+  background-color: #dc3545;
+  height: 120px;
+  width: 120px;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
-.power_button_icon{
-    background-image: url("/assets/icons/power_button.png");
-    height: 120px;
-    width: 120px;
-    background-size: 120px 120px;
+.power_button_icon {
+  background-image: url("/assets/icons/power_button.png");
+  height: 120px;
+  width: 120px;
+  background-size: 120px 120px;
 }
 #power_button:hover {
-    background-color: #b7202e;
+  background-color: #b7202e;
 }
 /*End power button*/
+/*Begin online status*/
+#status_icon {
+  position: absolute;
+  border-radius: 25px;
+  left: 10px;
+  bottom: 10px;
+  height: 40px;
+  width: 40px;
+}
+.online {
+  background-color: #008000;
+}
+.offline {
+  background-color: #b7202e;
+}
+/*End online status*/
 </style>
