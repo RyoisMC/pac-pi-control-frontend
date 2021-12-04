@@ -1,17 +1,24 @@
 <template>
   <div id="app">
     <main>
+      <heartbeat></heartbeat>
       <router-view></router-view>
     </main>
   </div>
 </template>
 
 <script>
+import heartbeat from "./components/global/heartbeat.vue";
 export default {
   name: 'App',
+  components: {
+    heartbeat,
+  },
   data: function () {
     return {
       API_BASE_URL: "http://localhost:3000/api",
+      POWER_STATUS: null,
+      MODE_STATUS: null,
     };
   },
 }

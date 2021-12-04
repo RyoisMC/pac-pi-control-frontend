@@ -1,8 +1,23 @@
 <template>
   <div id="genericbg" class="text-center">
     <b-container class="vertical-center">
-        <div class="text-white padding-below"><h1 class="big-text">The System is Shutting Down</h1></div>
-        <div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+      <div class="text-white padding-below">
+        <h1 class="big-text">The System is Shutting Down</h1>
+      </div>
+      <div class="lds-spinner">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
     </b-container>
   </div>
 </template>
@@ -48,7 +63,7 @@ export default {
           });
         }
       });
-  }
+  },
 };
 </script>
 <style scoped>
@@ -67,7 +82,7 @@ export default {
   font-size: 48px;
   text-align: center;
 }
-.padding-below{
+.padding-below {
   padding-bottom: 25px;
 }
 /*Start Spinner*/

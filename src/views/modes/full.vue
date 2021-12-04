@@ -1,11 +1,12 @@
 <template>
   <div id="genericbg" class="text-center">
     <b-container class="vertical-center">
-        <div class="text-white"><h1 class="big-text">The System is in Full Control Mode</h1></div>
+      <div class="text-white">
+        <h1 class="big-text">The System is in Full Control Mode</h1>
+      </div>
     </b-container>
     <div id="power_button" v-on:click="power_off()">
-        <div class="power_button_icon">
-    </div>
+      <div class="power_button_icon"></div>
     </div>
   </div>
 </template>
@@ -14,12 +15,11 @@ export default {
   name: "power_on",
   methods: {
     power_off() {
-    const vm = this;
-    this.$parent.$swal
-      .fire({
+      const vm = this;
+      this.$parent.$swal
+        .fire({
           title: `Shutdown System?`,
-          html:
-            "<p>Are you sure you want to shutdown the sound system?",
+          html: "<p>Are you sure you want to shutdown the sound system?",
           icon: "question",
           showCancelButton: true,
           confirmButtonColor: "#dc3545",
@@ -29,11 +29,11 @@ export default {
           if (result.isConfirmed) {
             vm.$router.push({
               name: "PowerOff",
-          });
+            });
           }
         });
-    }
-  }
+    },
+  },
 };
 </script>
 <style scoped>
@@ -52,7 +52,7 @@ export default {
   font-size: 48px;
   text-align: center;
 }
-.big-text{
-    font-size: 2rem;
+.big-text {
+  font-size: 2rem;
 }
 </style>

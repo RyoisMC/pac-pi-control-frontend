@@ -3,12 +3,48 @@
     <v-idle @idle="idleCheck()" :duration="60" />
     <b-container class="vertical-center">
       <b-row>
-        <b-col><b-button pill class="btn-circle" data-mode="ONE" v-on:click="power_on('ONE')" variant="primary">One Mic</b-button></b-col>
-        <b-col><b-button pill class="btn-circle" data-mode="ONE_PC" v-on:click="power_on('ONE_PC')" variant="primary">Mic + PC</b-button></b-col>
-        <b-col><b-button pill class="btn-circle" data-mode="FOUR_PC" v-on:click="power_on('FOUR_PC')" variant="primary">4 Mics + PC</b-button></b-col>
+        <b-col
+          ><b-button
+            pill
+            class="btn-circle"
+            data-mode="ONE"
+            v-on:click="power_on('ONE')"
+            variant="primary"
+            >One Mic</b-button
+          ></b-col
+        >
+        <b-col
+          ><b-button
+            pill
+            class="btn-circle"
+            data-mode="ONE_PC"
+            v-on:click="power_on('ONE_PC')"
+            variant="primary"
+            >Mic + PC</b-button
+          ></b-col
+        >
+        <b-col
+          ><b-button
+            pill
+            class="btn-circle"
+            data-mode="FOUR_PC"
+            v-on:click="power_on('FOUR_PC')"
+            variant="primary"
+            >4 Mics + PC</b-button
+          ></b-col
+        >
       </b-row>
       <b-row class="full-padding">
-        <b-col><b-button pill class="btn-full-control" data-mode="FULL" v-on:click="power_on('FULL')" variant="warning">Full Control</b-button></b-col>
+        <b-col
+          ><b-button
+            pill
+            class="btn-full-control"
+            data-mode="FULL"
+            v-on:click="power_on('FULL')"
+            variant="warning"
+            >Full Control</b-button
+          ></b-col
+        >
       </b-row>
     </b-container>
   </div>
@@ -18,18 +54,18 @@ export default {
   name: "homepage",
   methods: {
     power_on(mode) {
-      const props = { "mode": mode};
-        this.$router.push({
-          name: "PowerOn",
-          params: { props },
+      const props = { mode: mode };
+      this.$router.push({
+        name: "PowerOn",
+        params: { props },
       });
     },
     idleCheck() {
-        this.$router.push({
-          name: "Sleep",
+      this.$router.push({
+        name: "Sleep",
       });
     },
-  }
+  },
 };
 </script>
 <style scoped>
@@ -48,10 +84,10 @@ export default {
   font-size: 1.6em;
   text-align: center;
 }
-.full-padding{
+.full-padding {
   padding-top: 2em;
 }
-.btn-full-control{
+.btn-full-control {
   width: 24vw;
   height: 16vh;
   padding: 10px 16px;
