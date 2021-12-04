@@ -2,7 +2,7 @@
   <div id="genericbg" class="text-center text-white">
     <b-container class="vertical-center">
       <b-row>
-        <b-col><h1 class="big-text">Black Handheld Mic</h1><b-button pill class="btn-big" :pressed.sync="ch01.mute" data-mode="ONE" v-on:click="mutech01()" variant="danger">{{ch01.text}}</b-button></b-col>
+        <b-col><h1 class="big-text">Black Mic</h1><b-button pill class="btn-big" :pressed.sync="ch01.mute" data-mode="ONE" v-on:click="mutech01()" variant="danger">{{ch01.text}}</b-button></b-col>
         <b-col><h1 class="big-text">PC</h1><b-button pill class="btn-big" :pressed.sync="pc.mute" data-mode="ONE" v-on:click="mutepc()" variant="danger">{{pc.text}}</b-button></b-col>
       </b-row>
     </b-container>

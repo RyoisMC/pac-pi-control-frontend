@@ -6,6 +6,7 @@ const power_off = () => import('../views/power_off.vue');
 const mode_one = () => import('../views/modes/one.vue');
 const mode_one_pc = () => import('../views/modes/one_pc.vue');
 const mode_four_pc = () => import('../views/modes/four_pc.vue');
+const mode_full = () => import('../views/modes/full.vue');
 
 Vue.use(VueRouter);
 
@@ -62,6 +63,15 @@ const routes = [
     component: mode_four_pc,
     meta: {
       title: 'Four Microphones with PC Mode',
+      visible: true
+    },
+  },
+  {
+    path: '/modes/full',
+    name: 'mode_full',
+    component: mode_full,
+    meta: {
+      title: 'Full Control Mode',
       visible: true
     },
   },

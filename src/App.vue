@@ -30,14 +30,21 @@ export default {
 }
 #genericbg{
   height: 100vh;
-  background-image: url("/assets/genericbg1080.png");
+  background-image: url("/assets/backgrounds/BackgroundScaled.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
 #welcomebg{
   height: 100vh;
-  background-image: url("/assets/welcome1080p.png");
+  background-image: url("/assets/backgrounds/WelcomeScaled.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+#sleepingbg{
+  height: 100vh;
+  background-image: url("/assets/backgrounds/SleepScreen.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -161,17 +168,18 @@ html, body{
 #power_button{
     position: absolute;
     border-radius: 25px;
-    right:    0;
-    bottom:   0;
+    right:    10px;
+    bottom:   10px;
     background-color: #dc3545;
-    height: 150px;
-    width: 150px;
+    height: 120px;
+    width: 120px;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 .power_button_icon{
-    background-image: url("/assets/power_button.png");
-    height: 150px;
-    width: 150px;
+    background-image: url("/assets/icons/power_button.png");
+    height: 120px;
+    width: 120px;
+    background-size: 120px 120px;
 }
 #power_button:hover {
     background-color: #b7202e;

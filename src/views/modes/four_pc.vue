@@ -146,4 +146,15 @@ methods: {
   font-size: 30px;
   text-align: center;
 }
+#power_button{
+    right:    10px;
+    bottom:   10px;
+    height: 80px;
+    width: 80px;
+}
+.power_button_icon{
+    height: 80px;
+    width: 80px;
+    background-size: 80px 80px;
+}
 </style>
