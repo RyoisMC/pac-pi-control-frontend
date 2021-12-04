@@ -16,7 +16,9 @@ export default {
   },
   data: function () {
     return {
-      API_BASE_URL: "http://localhost:3000/api",
+      API_BASE_URL: process.env.NODE_ENV === 'development'
+    ? 'http://localhost:3000/api'
+    : 'https://api.pac-control.jchsprojects.com/api',
       POWER_STATUS: null,
       MODE_STATUS: null,
     };
