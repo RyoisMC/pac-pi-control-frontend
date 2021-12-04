@@ -210,11 +210,11 @@ export default {
           }
           if (!response.data.error) {
             if (response.data.data.status == "MUTED") {
-              vm.ch01.mute = true;
-              vm.ch01.text = "Unmute Mic";
+              vm.ch02.mute = true;
+              vm.ch02.text = "Unmute Mic";
             } else {
-              vm.ch01.mute = false;
-              vm.ch01.text = "Mute Mic";
+              vm.ch02.mute = false;
+              vm.ch02.text = "Mute Mic";
             }
           }
         })
@@ -231,11 +231,11 @@ export default {
           }
           if (!response.data.error) {
             if (response.data.data.status == "MUTED") {
-              vm.ch01.mute = true;
-              vm.ch01.text = "Unmute Mic";
+              vm.ch03.mute = true;
+              vm.ch03.text = "Unmute Mic";
             } else {
-              vm.ch01.mute = false;
-              vm.ch01.text = "Mute Mic";
+              vm.ch03.mute = false;
+              vm.ch03.text = "Mute Mic";
             }
           }
         })
@@ -252,11 +252,11 @@ export default {
           }
           if (!response.data.error) {
             if (response.data.data.status == "MUTED") {
-              vm.ch01.mute = true;
-              vm.ch01.text = "Unmute Mic";
+              vm.ch04.mute = true;
+              vm.ch04.text = "Unmute Mic";
             } else {
-              vm.ch01.mute = false;
-              vm.ch01.text = "Mute Mic";
+              vm.ch04.mute = false;
+              vm.ch04.text = "Mute Mic";
             }
           }
         })
