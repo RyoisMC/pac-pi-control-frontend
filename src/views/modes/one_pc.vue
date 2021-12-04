@@ -74,6 +74,25 @@ export default {
         vm.pc.text = "Mute PC";
       }
     },
+    power_off() {
+      const vm = this;
+      this.$parent.$swal
+        .fire({
+          title: `Shutdown System?`,
+          html: "<p>Are you sure you want to shutdown the sound system?",
+          icon: "question",
+          showCancelButton: true,
+          confirmButtonColor: "#dc3545",
+          confirmButtonText: "Shutdown",
+        })
+        .then(async function (result) {
+          if (result.isConfirmed) {
+            vm.$router.push({
+              name: "PowerOff",
+            });
+          }
+        });
+    },
     doMuteHeartbeat: function () {
       const vm = this;
       axios({
