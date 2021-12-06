@@ -60,9 +60,6 @@ export default {
       })
         .then(function (response) {
           if (response.data.error) {
-          vm.$parent.$router.push({
-            name: `Offline`,
-          });
             vm.$parent.ONLINE = false;
             console.error(response.data.message);
           }
@@ -73,9 +70,6 @@ export default {
           }
         })
         .catch(function (response) {
-          vm.$parent.$router.push({
-            name: `Offline`,
-          });
           vm.$parent.ONLINE = false;
           console.error(response);
         });
