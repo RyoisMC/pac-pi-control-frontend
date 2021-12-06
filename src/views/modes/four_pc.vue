@@ -314,7 +314,7 @@ export default {
   height: 80px;
   padding: 10px 16px;
   border-radius: 35px;
-  font-size: 30px;
+  font-size: 25px;
   text-align: center;
 }
 #power_button {
